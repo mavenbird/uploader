@@ -1,4 +1,4 @@
-# Magento 2 File Upload Permission Extension
+# Magento 2 SVG,Webp and PDF File Upload Extension
 
 Empower your Magento 2 store with the ability to allow customers to upload SVG, WEBP, and PDF files on PageBuilder. Our Magento 2 File Upload Permission Extension enhances the customer experience by enabling easy file uploads, streamlining content management for both merchants and customers.
 
