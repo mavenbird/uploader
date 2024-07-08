@@ -18,6 +18,27 @@
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Mavenbird_ImageUploader" setup_version="1.1.0" />
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mavenbird_imageuploader>
+            <extensions>
+                <vector>
+                    <svg>svg</svg>
+                    <svg_xml>svg+xml</svg_xml>
+                </vector>
+                <web_image>
+                    <webp>webp</webp>
+                </web_image>
+            </extensions>
+        </mavenbird_imageuploader>
+        <dev>
+            <image>
+                <adapters>
+                    <GD2>
+                        <class>Mavenbird\ImageUploader\Model\Image\Adapter\Gd2</class>
+                    </GD2>
+                </adapters>
+            </image>
+        </dev>
+    </default>
 </config>

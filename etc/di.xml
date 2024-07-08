@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!-- /**
  * Mavenbird Technologies Private Limited
  *
@@ -17,7 +17,91 @@
  * @copyright  Copyright (c) 2018-2024 Mavenbird Technologies Private Limited ( http://mavenbird.com )
  * @license    http://mavenbird.com/Mavenbird-Module-License.txt
  */ -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
-    <preference for="Magento\PageBuilder\Controller\Adminhtml\ContentType\Image\Upload" 
-    type="Mavenbird\Uploader\Controller\Adminhtml\ContentType\Image\Upload"/>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
+        <arguments>
+            <argument name="extensions" xsi:type="array">
+                <item name="allowed" xsi:type="array">
+                    <item name="svg" xsi:type="string">image/svg</item>
+                    <item name="svg-xml" xsi:type="string">image/svg+xml</item>
+                    <item name="webp" xsi:type="string">image/webp</item>
+                </item>
+                <item name="image_allowed" xsi:type="array">
+                    <item name="svg" xsi:type="string">image/svg</item>
+                    <item name="svg-xml" xsi:type="string">image/svg+xml</item>
+                    <item name="webp" xsi:type="string">image/webp</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magento\Catalog\CategoryImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="svg" xsi:type="string">svg</item>
+                <item name="webp" xsi:type="string">webp</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="svg" xsi:type="string">image/svg</item>
+                <item name="svg-xml" xsi:type="string">image/svg+xml</item>
+                <item name="webp" xsi:type="string">image/webp</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\MediaGallerySynchronization\Model\FetchMediaStorageFileBatches">
+        <arguments>
+            <argument name="fileExtensions" xsi:type="array">
+                <item name="svg" xsi:type="string">svg</item>
+                <item name="webp" xsi:type="string">webp</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\MediaStorage\App\Media">
+        <plugin name="web-images-media-plugin" type="Mavenbird\ImageUploader\Plugin\App\MediaPlugin" />
+    </type>
+    <type name="Magento\MediaStorage\Model\File\Uploader">
+        <plugin name="allow-web-images" type="Mavenbird\ImageUploader\Plugin\File\UploaderPlugin" />
+    </type>
+    <type name="Magento\MediaStorage\Model\File\Validator\NotProtectedExtension">
+        <plugin name="allow-web-images" 
+            type="Mavenbird\ImageUploader\Plugin\File\Validator\NotProtectedExtensionPlugin" />
+    </type>
+    <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
+        <plugin name="allow-web-images" type="Mavenbird\ImageUploader\Plugin\Wysiwyg\Images\StoragePlugin" />
+    </type>
+    <type name="Magento\Cms\Controller\Adminhtml\Wysiwyg\Images\Thumbnail">
+        <plugin name="allow-web-images" 
+            type="Mavenbird\ImageUploader\Plugin\Controller\Adminhtml\Wysiwyg\Images\ThumbnailPlugin" />
+    </type>
+    <type name="Magento\Cms\Controller\Adminhtml\Wysiwyg\Directive">
+        <plugin name="allow-web-images" 
+            type="Mavenbird\ImageUploader\Plugin\Controller\Adminhtml\Wysiwyg\DirectivePlugin" />
+    </type>
+
+    <type name="Magento\Theme\Model\Design\Backend\Logo">
+        <plugin name="allow-web-images" type="Mavenbird\ImageUploader\Plugin\Design\Backend\ImagePlugin" />
+    </type>
+    <type name="Magento\Theme\Model\Design\Backend\Favicon">
+        <plugin name="allow-web-images" type="Mavenbird\ImageUploader\Plugin\Design\Backend\ImagePlugin" />
+    </type>
+    <type name="Magento\Theme\Model\Design\Backend\Image">
+        <plugin name="allow-web-images" type="Mavenbird\ImageUploader\Plugin\Design\Backend\ImagePlugin" />
+    </type>
+
+    <type name="Magento\Swatches\Helper\Media">
+        <plugin name="allow-web-images" type="Mavenbird\ImageUploader\Plugin\Swatches\Helper\MediaPlugin" />
+    </type>
+
+    <type name="Magento\MediaGallerySynchronization\Model\CreateAssetFromFile">
+        <arguments>
+            <argument name="assetFactory" xsi:type="object">Mavenbird\ImageUploader\Model\AssetFactory</argument>
+        </arguments>
+    </type>
+    <type name="Magento\PageBuilder\Controller\Adminhtml\ContentType\Image\Upload">
+        <arguments>
+            <argument name="uploaderFactory" 
+                xsi:type="object">Mavenbird\ImageUploader\Model\File\UploaderFactory</argument>
+        </arguments>
+    </type>
 </config>

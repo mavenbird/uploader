@@ -1,26 +1,26 @@
 {
-  "name": "mavenbird/uploader",
-  "description": "Mavenbird Uploader",
-  "require": {
-    "php": ">=8.0.0"
-  },
-  "type": "magento2-module",
-  "version": "1.0.0",
-  "license": "proprietary",
-  "authors": [
-      {
-        "name": "Mavenbird",
-        "email": "support@mavenbird.com",
-        "homepage": "https://www.mavenbird.com",
-        "role": "Technical Support"
-      }
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "mavenbird/imageuploader",
+    "description": "Magento 2 module for uploading SVG and WEBP images, enhancing media management capabilities within the PageBuilder.",
+    "require": {
+        "php": ">=8.0.0"
+    },
+    "type": "magento2-module",
+    "version": "1.1.0",
+    "license": "proprietary",
+    "authors": [
+        {
+          "name": "Mavenbird",
+          "email": "support@mavenbird.com",
+          "homepage": "https://www.mavenbird.com",
+          "role": "Technical Support"
+        }
     ],
-    "psr-4": {
-      "Mavenbird\\Uploader\\": ""
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4":  { 
+            "Mavenbird\\ImageUploader\\": ""
+        }
     }
   }
-}
