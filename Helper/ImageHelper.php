@@ -52,7 +52,7 @@ class ImageHelper extends AbstractHelper
     {
         return $this->scopeConfig->getValue(self::XML_PATH_VECTOR_EXTENSIONS, 'store') ?: [];
     }
-
+    
     /**
      * Get web image extensions
      *
