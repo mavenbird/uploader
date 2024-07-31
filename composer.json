@@ -1,0 +1,34 @@
+{
+    "name": "mavenbird/module-admin-category-product-link",
+    "description": "Admin Category Product Link Extension for Magento 2",
+    "keywords": ["Magento 2", "Admin Category", "Product Link", "Edit Product"],
+    "require": {
+        "php": "~7.3.0||~7.4.0||~8.1.0||~8.2.0||~8.3.0",
+        "magento/framework": "103.0.*",
+        "magento/module-catalog": "104.0.*"
+    },
+    "type": "magento2-module",
+    "version": "2.4.4",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mavenbird\\AdminCategoryProductLink\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Mavenbird Team",
+            "homepage": "https://www.mavenbird.com/",
+            "email": "info@mavenbird.com"
+        }
+    ],
+    "support": {
+        "email": "support@mavenbird.com"
+    }
+}
