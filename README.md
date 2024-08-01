@@ -61,6 +61,6 @@ Dedicated support team available to assist with installation, customization, and
 
 
 ## Get Started:
-Enhance your Magento 2 store's stock management capabilities with the mavenbird/module-admin-category-product-link module. Simplify stock updates, improve accuracy, and streamline operations today!
+Boost your Magento 2 store's efficiency with the mavenbird/module-admin-category-product-link module. This module simplifies the process of linking products to categories directly from the admin panel, enhancing stock management, improving organizational accuracy, and streamlining operations.
 
 *Thank you!*
